@@ -1,6 +1,6 @@
 {
   "name": "rind-modules",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "rind modules symlink builder",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,23 @@
   "devDependencies": {
     "tape": "^2.10.2",
     "rimraf": "^2.2.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/creativelive/rind-modules.git"
+  },
+  "keywords": [
+    "rind",
+    "modules",
+    "symlink",
+    "tree",
+    "builder"
+  ],
+  "bugs": {
+    "url": "https://github.com/creativelive/rind-modules/issues"
+  },
+  "homepage": "https://github.com/creativelive/rind-modules"
 }

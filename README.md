@@ -1,4 +1,4 @@
-# Rind Modules
+# Rind Modules [![](https://travis-ci.org/creativelive/rind-modules.png)](https://travis-ci.org/creativelive/rind-modules)
 
 Build a symlink tree to turn a module-based file hierarchy into an entity based one
 
