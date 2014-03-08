@@ -1,0 +1,19 @@
+{
+  "name": "rind-modules",
+  "version": "0.0.1",
+  "description": "rind modules symlink builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test"
+  },
+  "author": "Matthew Hadley",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^3.2.9",
+    "mkdirp": "^0.3.5"
+  },
+  "devDependencies": {
+    "tape": "^2.10.2",
+    "rimraf": "^2.2.6"
+  }
+}
