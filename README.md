@@ -3,7 +3,7 @@
 Build a symlink tree to turn a module-based file hierarchy into an entity based one
 
 ```
-├── modules                          <-- input directory
+├── modules  // input directory
 │   ├── aaa
 │   │   └── bbb.mod
 │   │       ├── assets
@@ -19,7 +19,7 @@ Build a symlink tree to turn a module-based file hierarchy into an entity based 
 │       │       └── file.txt
 │       └── templates
 │           └── file.txt
-└── output                          <-- output directory
+└── output  // output directory
     ├── assets
     │   └── img
     │       ├── aaa
