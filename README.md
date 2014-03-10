@@ -53,6 +53,7 @@ var rindModules = require('rind-modules');
 rindModules({
   input: __dirname,
   output: __dirname + '/output',
+  // rm: true, // use with caution - deletes any existing targets in the output directory
   verbose: true
 });
 ```

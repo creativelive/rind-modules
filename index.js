@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var glob = require('glob');
 var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
 
 var anatomy = {
   'client': {},
@@ -74,7 +75,6 @@ module.exports = function setupModules(opts){
     linkPath = path.relative(path.dirname(dstPath), srcPath);
 
     log();
-    log();
     log('      file:', path.resolve(part));
     log('      part:', part);
     log('    module:', mod.name);
@@ -86,15 +86,21 @@ module.exports = function setupModules(opts){
     log('  linkPath:', linkPath);
 
     if(fs.existsSync(dstPath)){
-      log(dstPath + ' (already exists)');
-    } else {
-      if(!fs.existsSync(path.dirname(dstPath))){
-        mkdirp.sync(path.dirname(dstPath));
-      }
-      if(!fs.existsSync(dstPath)){
-        log(dstPath + ' >> ' + linkPath);
-        fs.symlinkSync(linkPath, dstPath, 'dir');
+      log('pre-exists:', dstPath);
+      if(opts.rm){
+        log('  removing:', dstPath);
+        rimraf.sync(dstPath);
       }
     }
+    // create parent directory if it doesn't exist
+    if(!fs.existsSync(path.dirname(dstPath))){
+      mkdirp.sync(path.dirname(dstPath));
+    }
+    // create the symlink
+    if(!fs.existsSync(dstPath)){
+      log(dstPath + ' >> ' + linkPath);
+      fs.symlinkSync(linkPath, dstPath, 'dir');
+    }
+    log();
   });
 };
