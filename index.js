@@ -46,6 +46,9 @@ module.exports = function setupModules(opts){
   }
 
   opts.anatomy = opts.anatomy || {};
+  var cwd = process.cwd();
+  opts.input = opts.input || cwd;
+  opts.output = opts.output || cwd;
   opts.src = 'modules/**/*.mod/**/*.*';
   var parts = glob.sync(opts.src, {cwd:opts.input});
   var mod, dstPath, srcPath, linkPath;
