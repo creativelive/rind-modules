@@ -5,19 +5,6 @@ var glob = require('glob');
 var mkdirp = require('mkdirp');
 var rimraf = require('rimraf');
 
-var anatomy = {
-  'client': {},
-  'config': {},
-  'lib': {},
-  'routes': {},
-  'handlers': {},
-  'styles': {},
-  'templates': {},
-  'lang': {'sub' : true},
-  'assets' : {'sub' : true},
-  'test' : {'sub' : true}
-};
-
 function findModule(part, anatomy){
   var split = part.split('/');
   var splitLen = split.length;
@@ -37,7 +24,7 @@ function findModule(part, anatomy){
     } else if (anatomy[split[i]]){
       mod.anatomy = split[i];
       if (anatomy[split[i]].sub) {
-        mod.subAnatomy = split[(i+1)];
+        mod.subAnatomy = split[(i + 1)];
       }
       mod.path = split.splice(0, i).join('/');
       break;
@@ -58,7 +45,7 @@ module.exports = function setupModules(opts){
     }
   }
 
-  opts.anatomy = opts.anatomy || anatomy;
+  opts.anatomy = opts.anatomy || {};
   opts.src = 'modules/**/*.mod/**/*.*';
   var parts = glob.sync(opts.src, {cwd:opts.input});
   var mod, dstPath, srcPath, linkPath;

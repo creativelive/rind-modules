@@ -1,3 +1,5 @@
+'use strict';
+
 var test = require('tape');
 var rindModules = require('..');
 var rimraf = require('rimraf').sync;
@@ -15,6 +17,13 @@ var expected = [
 var opts = {
   input: __dirname,
   output: path.join(__dirname, 'output'),
+  anatomy: {
+    lib: true,
+    templates: true,
+    assets : {
+      sub : true
+    }
+  },
   verbose: true
 };
 

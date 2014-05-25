@@ -21,7 +21,7 @@ Build a symlink tree to turn a module-based file hierarchy into an entity based 
 │           └── file.txt
 └── output  // output directory
     ├── assets
-    │   └── img
+    │   └── img  // mapped a sub-directory
     │       ├── aaa
     │       │   └── bbb -> ../../../../modules/aaa/bbb.mod/assets/img
     │       └── ccc -> ../../../modules/ccc.mod/assets/img
@@ -50,10 +50,20 @@ modules/
 ```
 var rindModules = require('rind-modules');
 
+// object describing module top-level directories to map
+var anatomy = {
+  lib: true,        // map the `lib` directory
+  templates: true,  // map the `templates` directory
+  assets: {         // map the `assets` directory and
+    sub: true       // its `sub`directories
+  }
+}
+
 rindModules({
+  anatomy: anatomy,
   input: __dirname,
   output: __dirname + '/output',
   // rm: true, // use with caution - deletes any existing targets in the output directory
-  verbose: true
+  verbose: true,
 });
 ```
