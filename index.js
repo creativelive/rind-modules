@@ -65,7 +65,7 @@ module.exports = function setupModules(opts){
     linkPath = path.relative(path.dirname(dstPath), srcPath);
 
     log();
-    log('      file:', path.resolve(part));
+    log('      file:', path.resolve(opts.input, part));
     log('      part:', part);
     log('    module:', mod.name);
     log('   anatomy:', mod.anatomy);
