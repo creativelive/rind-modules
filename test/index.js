@@ -20,20 +20,20 @@ var opts = {
   anatomy: {
     lib: true,
     templates: true,
-    assets : {
-      sub : true
+    assets: {
+      sub: true
     }
   },
   verbose: true
 };
 
-test('builds symlinks tree', function (t) {
+test('builds symlinks tree', function(t) {
   rimraf(opts.output);
   t.plan(5);
 
   rindModules(opts);
   console.log('');
-  expected.forEach(function(file){
+  expected.forEach(function(file) {
     t.equal(fs.existsSync(path.join(opts.output, file)), true);
   });
 
